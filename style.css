@@ -1,111 +1,78 @@
-/* Globale Variablen für einfache Farbanpassung */
-:root {
-    --primary-color: #3498db; /* Ein schönes Blau */
-    --secondary-color: #2c3e50; /* Dunkles Grau/Schwarz für Text */
-    --background-color: #ecf0f1; /* Helles Grau für den Hintergrund */
-    --text-on-primary: #ffffff;
-    --card-background: #ffffff;
-}
+<!DOCTYPE html>
+<html lang="de">
 
-/* Grundlegende Zurücksetzung und Schriftart */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Statische Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: var(--background-color);
-    color: var(--secondary-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+<body>
 
-/* Header-Bereich (Hero) */
-.hero {
-    background-color: var(--primary-color);
-    color: var(--text-on-primary);
-    padding: 100px 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    <header class="hero">
+        <h1>Willkommen bei Lady Marmelade! </h1>
+        <p>lecker und mit Liebe hausgemacht von Eva </p>
+    </header>
 
-.hero h1 {
-    margin-bottom: 10px;
-    font-size: 3em;
-}
+    <main class="content-section">
 
-.hero p {
-    font-size: 1.2em;
-    opacity: 0.9;
-}
+        <section class="about-me">
+            <h2>Über mich und meinen Marktstand</h2>
+            <p>
+                Ich liebe dich zu verwöhnen mit feinem Zeugs!
+                <img src="marmelade.jpg" alt="Ich und meine Unterstützer" class="hero-image">
+            </p>
+        </section>
 
-/* Hauptinhalts-Bereich */
-.content-section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    flex-grow: 1;
-}
+        <!-- <section class="details" id="details">
+           <h2>Produkte</h2>
+        </section> -->
 
-/* Allgemeine Abschnitte */
-.about-me, .details {
-    background-color: var(--card-background);
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
+        <section class="details">
+            <h2>Produkte</h2>
+            <p>
+                <a href="#ingredients-chutney">Kürbis-Chutney</a>
+            </p>
 
-.content-section h2 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-}
+            <div id="ingredients-chutney" class="ingredients-list">
+                <div class="ingredients-header">
+                    <h3>Zutaten: Kürbis-Chutney</h3>
+                    <a href="#details" class="close-link">[X]</a>
+                </div>
+                <ul>
+                    <li> Zucker </li>
+                    <li> Kürbis </li>
+                </ul>
+            </div>
 
-.content-section p {
-    margin-bottom: 15px;
-}
+            <p>
+                <a href="#ingredients-quittengelee">Quitten Gelee</a>
+            </p>
 
-/* Listen-Stil */
-ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 10px;
-}
 
-ul li {
-    background-color: var(--background-color);
-    margin-bottom: 8px;
-    padding: 10px;
-    border-left: 5px solid var(--primary-color);
-}
+            <div id="ingredients-quittengelee" class="ingredients-list">
+                <div class="ingredients-header">
+                    <h3>Zutaten: Quittengelee</h3>
+                    <a href="#details" class="close-link">[X]</a>
+                </div>
+                <ul>
+                    <li> Zucker </li>
+                    <li> Quitten </li>
+                    <li> Geliermittel </li>
+                </ul>
+            </div>
 
-/* Footer-Bereich */
-.footer {
-    background-color: var(--secondary-color);
-    color: var(--text-on-primary);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9em;
-}
 
-/* Media Query für kleinere Bildschirme (Responsive Design) */
-@media (max-width: 600px) {
-    .hero {
-        padding: 60px 20px;
-    }
 
-    .hero h1 {
-        font-size: 2em;
-    }
+        </section>
 
-    .content-section {
-        margin: 20px auto;
-    }
-}
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025...von Jonas erstellt.</p>
+    </footer>
+
+</body>
+
+</html>
