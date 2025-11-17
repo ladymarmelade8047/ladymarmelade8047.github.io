@@ -1,0 +1,181 @@
+/* Globale Variablen für einfache Farbanpassung */
+:root {
+    --primary-color: #3498db;
+    /* Ein schönes Blau */
+    --secondary-color: #2c3e50;
+    /* Dunkles Grau/Schwarz für Text */
+    --background-color: #ecf0f1;
+    /* Helles Grau für den Hintergrund */
+    --text-on-primary: #ffffff;
+    --card-background: #ffffff;
+}
+
+/* Grundlegende Zurücksetzung und Schriftart */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header-Bereich (Hero) */
+.hero {
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    padding: 100px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Hauptinhalts-Bereich */
+.content-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+/* Allgemeine Abschnitte */
+.about-me,
+.details {
+    background-color: var(--card-background);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.content-section p {
+    margin-bottom: 15px;
+}
+
+/* Listen-Stil */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+ul li {
+    background-color: var(--background-color);
+    margin-bottom: 8px;
+    padding: 10px;
+    border-left: 5px solid var(--primary-color);
+}
+
+/* Footer-Bereich */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--text-on-primary);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+/* Media Query für kleinere Bildschirme (Responsive Design) */
+@media (max-width: 600px) {
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .content-section {
+        margin: 20px auto;
+    }
+}
+
+
+/* Standardmäßig alle Zutaten-Listen ausblenden */
+.ingredients-list {
+    display: none;
+    /* Optionale Stile für bessere Darstellung */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Verwenden Sie eine höhere Hintergrundfarbe, um den Inhalt zu überdecken */
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    /* Sicherstellen, dass es über dem Inhalt liegt */
+    min-height: 100%;
+    /* Oder eine feste Höhe, je nach Design */
+}
+
+/* Den Container anzeigen, wenn er das Ziel des Links ist */
+.ingredients-list:target {
+    display: block;
+}
+
+/* Stil für den Schließen-Link */
+.ingredients-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.close-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+
+
+/* Stil für das Bild im bei Über-Mich */
+.hero-image {
+    /* Maximale Breite, damit das Bild nicht über den Container hinausgeht */
+    max-width: 100%;
+    /* Höhe automatisch anpassen, um die Proportionen zu erhalten */
+    height: auto;
+    /* Abstand nach unten zum Text */
+    margin-bottom: 25px;
+    /* Zentrierung des Bildes (da es ein Inline-Element ist) */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* Optional: Macht das Bild rund */
+    border-radius: 50%;
+    /* Optional: Eine leichte Umrandung */
+    border: 5px solid var(--text-on-primary);
+    /* Optional: Größe des Bildes festlegen */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    /* Stellt sicher, dass das Bild den 200x200px Rahmen ausfüllt */
+}
