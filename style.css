@@ -21,8 +21,11 @@
     }
 
     body {
-        font-family: 'Georgia', 'Times New Roman', Times, serif;
+        /* font-family: 'Georgia', 'Times New Roman', Times, serif; */
+
+        font-family: 'Amatic SC', 'Times New Roman', Times, serif;
         /* Klassische, wärmere Schrift */
+        font-size: 28px;
         line-height: 1.6;
         background-color: var(--background-color);
         color: var(--secondary-color);
@@ -36,7 +39,7 @@
         /* Verwendung des Hauptthemas Rot */
         background-color: var(--primary-color);
         color: var(--text-on-primary);
-        padding: 100px 20px;
+        padding: 30px 7px;
         text-align: center;
         /* Stärkerer, wärmerer Schatten */
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
@@ -53,7 +56,7 @@
         font-size: 1.3em;
         /* Etwas größer */
         opacity: 0.95;
-        font-style: italic;
+        font-style: normal;
         /* Etwas verspielter */
     }
 
@@ -67,6 +70,18 @@
 
     /* Allgemeine Abschnitte */
     .about-me,
+    .details {
+        background-color: var(--card-background);
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 12px;
+        /* Weichere Kanten */
+        /* Dezenter, eleganter Schatten */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .contact,
     .details {
         background-color: var(--card-background);
         padding: 30px;
@@ -194,19 +209,61 @@
 
 
     /* Stil für das Bild im bei Über-Mich */
+
     .hero-image {
-        max-width: 100%;
-        height: auto;
-        margin-top: 15px;
-        margin-bottom: 25px;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 15px auto 25px auto;
         border-radius: 50%;
-        /* Dickerer Rand in Primärfarbe */
         border: 6px solid var(--primary-color);
-        width: 250px;
-        height: 250px;
-        object-fit: cover;
+        width: 300px;
+        /* Kreisgröße */
+        height: 300px;
+        object-fit: contain;
+        /* Glas komplett sichtbar */
+        background-color: #fff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* height: auto;  <-- entfernen, da widersprüchlich */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Gingham / Marmeladenglas-Karo */
+    body {
+        /* Basishintergrund bleibt erhalten */
+        background-color: var(--background-color);
+
+        /* Zwei orthogonale, halbtransparente Streifenmuster übereinander:
+       - 0deg  = vertikal
+       - 90deg = horizontal
+       Die Überlagerung macht die Schnittpunkte dunkler -> echtes Gingham-Feeling. */
+        background-image:
+            repeating-linear-gradient(0deg,
+                rgba(163, 43, 50, 0.18) 0px,
+                /* Rot halbtransparent */
+                rgba(163, 43, 50, 0.18) 24px,
+                rgba(255, 255, 255, 0.18) 24px,
+                /* Weiß halbtransparent */
+                rgba(255, 255, 255, 0.18) 48px),
+            repeating-linear-gradient(90deg,
+                rgba(163, 43, 50, 0.18) 0px,
+                rgba(163, 43, 50, 0.18) 24px,
+                rgba(255, 255, 255, 0.18) 24px,
+                rgba(255, 255, 255, 0.18) 48px);
+
+        /* Quadratgröße des Karos (48px x 48px) — nach Geschmack anpassen */
+        background-size: 48px 48px;
+
+        /* Optional: leichtes Papier-/Stoffgefühl durch minimale Körnung (sehr subtil) */
+        background-blend-mode: multiply;
     }
