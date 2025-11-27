@@ -71,7 +71,7 @@
 
     /* Hauptinhalts-Bereich */
     .content-section {
-        max-width: 900px;
+        max-width: 800px;
         margin: 40px auto;
         padding: 0 20px;
         flex-grow: 1;
@@ -236,24 +236,29 @@
 
 
 
+
+
     /* Media Query für kleinere Bildschirme (Responsive Design) */
     @media (max-width: 600px) {
 
-        /* Fügen Sie dies hinzu, um die Basis-Schriftgröße anzupassen */
-        body {
-            /* Die Basisgröße von 28px auf eine mobilfreundlichere Größe reduzieren */
-            font-size: 24px;
+        /* NEU HINZUFÜGEN: Stellt sicher, dass die Boxen auf Mobilgeräten volle Breite nutzen */
+        .content-section {
+            max-width: 100%;
+            padding: 0 10px;
+            /* Etwas Abstand vom Rand */
+            margin: 20px auto;
         }
 
-        .hero {
-            padding: 60px 20px;
+        .about-me,
+        .details,
+        .contact {
+            /* Hier wird der innere Padding für die Boxen angepasst */
+            padding: 20px;
+            border-radius: 0;
+            margin-bottom: 20px;
         }
 
-        .hero h1 {
-            font-size: 2.5em;
-        }
-
-        /* ... Rest des Media Queries bleibt ... */
+        /* ... andere mobile Anpassungen ... */
     }
 
 
@@ -263,26 +268,6 @@
 
 
 
-
-    .content-section {
-        /* Korrektur 1: Horizontale Ränder auf 0 setzen, um die volle Breite zu nutzen */
-        max-width: 100%;
-        /* Sicherstellen, dass die max-width ignoriert wird */
-        margin: 20px auto;
-        /* Oben/Unten 20px, Links/Rechts Auto (zentriert) */
-        padding: 0;
-        /* Korrektur 2: Hier den äußeren Padding entfernen */
-    }
-
-    .about-me,
-    .details,
-    .contact {
-        /* Korrektur 3: Padding in den inneren Boxen für mobile Ansicht anpassen */
-        padding: 20px;
-        border-radius: 0;
-        /* Optionale Anpassung: Kanten auf Mobilgeräten ggf. entfernen */
-        margin-bottom: 20px;
-    }
 
     .hero p {
         padding: 0 10px;
