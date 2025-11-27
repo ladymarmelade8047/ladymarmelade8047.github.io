@@ -222,11 +222,11 @@
     .hero-image {
         display: block;
         margin: 15px auto 25px auto;
-        border-radius: 50%;
+
         border: 6px solid var(--primary-color);
-        width: 300px;
+        width: 500px;
         /* Kreisgröße */
-        height: 300px;
+        height: auto;
         object-fit: contain;
         /* Glas komplett sichtbar */
         background-color: #fff;
@@ -309,5 +309,4 @@
 
         /* OPTIONAL: Diesen Befehl entfernen oder auskommentieren, da er auf Android-Geräten oft Probleme verursacht. */
         /* background-blend-mode: multiply; */
-    }
     }
