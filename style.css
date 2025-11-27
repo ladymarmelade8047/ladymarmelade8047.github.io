@@ -242,7 +242,7 @@
         /* Fügen Sie dies hinzu, um die Basis-Schriftgröße anzupassen */
         body {
             /* Die Basisgröße von 28px auf eine mobilfreundlichere Größe reduzieren */
-            font-size: 18px;
+            font-size: 24px;
         }
 
         .hero {
