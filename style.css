@@ -237,7 +237,41 @@
 
 
 
+    /* Media Query für kleinere Bildschirme (Responsive Design) */
+    @media (max-width: 600px) {
+        .hero {
+            padding: 60px 20px;
+        }
 
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .content-section {
+            /* Korrektur 1: Horizontale Ränder auf 0 setzen, um die volle Breite zu nutzen */
+            max-width: 100%;
+            /* Sicherstellen, dass die max-width ignoriert wird */
+            margin: 20px auto;
+            /* Oben/Unten 20px, Links/Rechts Auto (zentriert) */
+            padding: 0;
+            /* Korrektur 2: Hier den äußeren Padding entfernen */
+        }
+
+        .about-me,
+        .details,
+        .contact {
+            /* Korrektur 3: Padding in den inneren Boxen für mobile Ansicht anpassen */
+            padding: 20px;
+            border-radius: 0;
+            /* Optionale Anpassung: Kanten auf Mobilgeräten ggf. entfernen */
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            padding: 0 10px;
+            /* Sicherstellen, dass auch der Hero-Text nicht ganz an den Rand geht */
+        }
+    }
 
 
 
@@ -251,11 +285,11 @@
     body {
         /* Basishintergrund bleibt erhalten */
         background-color: var(--background-color);
+        /* Die Fallback-Farbe ist hier bereits gesetzt */
 
         /* Zwei orthogonale, halbtransparente Streifenmuster übereinander:
        - 0deg  = vertikal
-       - 90deg = horizontal
-       Die Überlagerung macht die Schnittpunkte dunkler -> echtes Gingham-Feeling. */
+       - 90deg = horizontal */
         background-image:
             repeating-linear-gradient(0deg,
                 rgba(163, 43, 50, 0.18) 0px,
@@ -273,6 +307,7 @@
         /* Quadratgröße des Karos (48px x 48px) — nach Geschmack anpassen */
         background-size: 48px 48px;
 
-        /* Optional: leichtes Papier-/Stoffgefühl durch minimale Körnung (sehr subtil) */
-        background-blend-mode: multiply;
+        /* OPTIONAL: Diesen Befehl entfernen oder auskommentieren, da er auf Android-Geräten oft Probleme verursacht. */
+        /* background-blend-mode: multiply; */
+    }
     }
