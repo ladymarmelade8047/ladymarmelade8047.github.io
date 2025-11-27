@@ -310,3 +310,69 @@
         /* OPTIONAL: Diesen Befehl entfernen oder auskommentieren, da er auf Android-Geräten oft Probleme verursacht. */
         /* background-blend-mode: multiply; */
     }
+
+
+
+    /* Styling für die Produkt-Liste mit Icons */
+    .product-list {
+        list-style-type: none;
+        /* Entfernt die Standard-List-Marker */
+        padding-left: 0;
+        margin-top: 10px;
+    }
+
+    .product-list li {
+        background-color: var(--background-color);
+        margin-bottom: 12px;
+        padding: 15px;
+        /* Etwas mehr Platz */
+        border-left: none;
+        /* Entfernt den dicken Rand der alten ul-li */
+        border-radius: 8px;
+        /* Weichere Kanten */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        /* Sehr dezenter Schatten */
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .product-list li:hover {
+        transform: translateY(-2px);
+        /* Anstelle von translateX für einen 'Anhebe-Effekt' */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-list li a {
+        text-decoration: none;
+        color: var(--secondary-color);
+        font-weight: 700;
+        font-size: 1.1em;
+        display: block;
+        /* Damit der Link den gesamten LI-Inhalt abdeckt */
+        padding-left: 60px;
+        /* Platz für das Icon freihalten */
+        width: 100%;
+    }
+
+    /* Icon (über den data-icon-Attribut in HTML eingefügt) */
+    .product-list li::before {
+        content: attr(data-icon);
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.2em;
+        /* Größe des Icons anpassen */
+        line-height: 1;
+        color: var(--primary-color);
+        /* Fallback-Farbe, wird aber vom Emoji überschrieben */
+        z-index: 1;
+        /* Sicherstellen, dass das Icon über dem Hintergrund liegt */
+    }
+
+    /* Anpassung der Hover-Farbe für den Link */
+    .product-list li a:hover {
+        color: var(--primary-color);
+    }
