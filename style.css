@@ -20,6 +20,15 @@
         box-sizing: border-box;
     }
 
+    /* Verhindert horizontales Scrollen */
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+
+
     body {
         /* font-family: 'Georgia', 'Times New Roman', Times, serif; */
 
