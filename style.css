@@ -171,7 +171,8 @@
         top: 0;
         left: 0;
         right: 0;
-        bottom: 0;
+        max-height: 100vh;
+        /* statt bottom: 0 */
         /* Leicht transparenter Hintergrund, um Fokus zu schaffen */
         background-color: rgba(247, 247, 247, 0.98);
         overflow-y: auto;
