@@ -34,7 +34,7 @@
 
         font-family: 'Amatic SC', 'Times New Roman', Times, serif;
         /* Klassische, wärmere Schrift */
-        font-size: 34px;
+        font-size: 28px;
         line-height: 1.6;
         background-color: var(--background-color);
         color: var(--secondary-color);
