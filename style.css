@@ -232,7 +232,9 @@
 
         border: 6px solid var(--primary-color);
         width: 500px;
-        /* Kreisgröße */
+
+
+
         height: auto;
         object-fit: contain;
         /* Glas komplett sichtbar */
@@ -250,6 +252,13 @@
     /* Media Query für kleinere Bildschirme (Responsive Design) */
     @media (max-width: 600px) {
 
+
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
 
         body {
             font-size: 24px;
