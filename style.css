@@ -389,7 +389,7 @@
         font-size: 1.1em;
         display: block;
         /* Damit der Link den gesamten LI-Inhalt abdeckt */
-        padding-left: 60px;
+        padding-left: 10px;
         /* Platz für das Icon freihalten */
         width: 100%;
     }
