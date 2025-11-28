@@ -175,8 +175,16 @@
         /* Leicht transparenter Hintergrund, um Fokus zu schaffen */
         background-color: rgba(247, 247, 247, 0.98);
         overflow-y: auto;
+        scrollbar-width: none;
+        /* Firefox */
         z-index: 1000;
         padding: 50px 20px;
+    }
+
+
+    .ingredients-list::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari */
     }
 
     /* Den Container anzeigen, wenn er das Ziel des Links ist */
@@ -249,7 +257,7 @@
     @media (max-width: 600px) {
 
 
-body {
+        body {
             font-size: 24px;
             /* oder eine passende Größe */
         }
@@ -269,7 +277,7 @@ body {
         }
 
 
-        
+
 
         /* NEU HINZUFÜGEN: Stellt sicher, dass die Boxen auf Mobilgeräten volle Breite nutzen */
         .content-section {
