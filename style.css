@@ -238,8 +238,38 @@
 
 
 
+
+
+
+
+
+
+
     /* Media Query für kleinere Bildschirme (Responsive Design) */
     @media (max-width: 600px) {
+
+
+body {
+            font-size: 24px;
+            /* oder eine passende Größe */
+        }
+
+        .hero p {
+            font-size: 1em;
+            /* optional für Absätze */
+        }
+
+
+        .hero {
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+
+        
 
         /* NEU HINZUFÜGEN: Stellt sicher, dass die Boxen auf Mobilgeräten volle Breite nutzen */
         .content-section {
