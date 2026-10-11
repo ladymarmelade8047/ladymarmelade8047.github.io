@@ -1,371 +1,448 @@
-<!DOCTYPE html>
-<html lang="de">
-
+<!doctype html>
+<html lang="de-CH">
 <head>
-    <meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lady Marmelade</title>
+<meta name="description" content="Hausgemachte Konfitüren, Chutneys, Pesto und Nussmus aus Zürich – zum Selbergeniessen oder Verschenken. Am 12. &amp; 13. Dezember 2026 am Winterzauber Uetliberg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap">
+<style>
+  /* Layout: wie ein Etikettenbogen – weisses Papier, Tusche, jede Sorte in ihrer Blütenfarbe */
+  :root {
+    --paper: #FFFFFF;
+    --wash: #F6F4F1;
+    --ink: #2E2A2B;
+    --ink-soft: #6B6461;
+    --line: #DDD6CE;
+    --leaf: #5F7E4E;
+    --plum: #64489E;
+    --script: "Pinyon Script", "Snell Roundhand", cursive;
+    --display: "Cormorant Garamond", "Garamond", Georgia, serif;
+    --text: "EB Garamond", "Garamond", Georgia, serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 400 1.1875rem/1.6 var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 72rem; margin: 0 auto; padding-inline: max(1rem, env(safe-area-inset-left, 0px)); }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hier findest du Süsses & Salziges zum selbst geniessen oder als Geschenk für deine Lieben – in jedem
-            Fall lecker und hübsch verpackt.">
-    <title>Lady Marmelade </title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
+  /* Navigation */
+  .nav {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: rgba(255,255,255,.94); backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .6rem; }
+  .nav .logo { font: 400 1.9rem/1 var(--script); text-decoration: none; white-space: nowrap; }
+  .nav ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; justify-content: flex-end; }
+  .nav ul a { text-decoration: none; font: 500 1.05rem var(--display); letter-spacing: .04em; color: var(--ink-soft); }
+  .nav ul a:hover { color: var(--ink); }
+  @media (max-width: 40rem) { .nav ul { gap: .65rem; flex-wrap: nowrap; } .nav .wrap { gap: .5rem; } .nav ul li.opt { display: none; } .nav ul a { font-size: .9rem; letter-spacing: 0; } .nav .logo { font-size: 1.6rem; } }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amatic+SC:wght@400;700&family=Caveat:wght@400;700&family=Courier+Prime&family=Fredoka+One&family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Shadows+Into+Light&display=swap"
-        rel="stylesheet">
+  /* Hero */
+  .hero { text-align: center; padding-block: 3.5rem 1rem; }
+  .hero h1 { font: 400 clamp(3.6rem, 11vw, 7.5rem)/1 var(--script); margin: 0; font-weight: 400; }
+  .divider { display: flex; align-items: center; justify-content: center; gap: .6rem; margin: 1rem auto 1.1rem; }
+  .divider::before, .divider::after { content: ""; width: clamp(3rem, 12vw, 7rem); height: 1px; background: var(--ink); }
+  .divider span { width: .45rem; height: .45rem; border-radius: 50%; background: var(--ink); }
+  .hero .lead { font: italic 500 clamp(1.25rem, 3vw, 1.6rem)/1.35 var(--display); color: var(--ink-soft); margin: 0 auto; max-width: 34rem; text-wrap: balance; }
+  .bouquet { display: flex; justify-content: center; align-items: flex-end; gap: 0; margin: 2rem auto 0; max-width: 46rem; }
+  .bouquet img { width: 14%; margin-inline: -1.6%; }
+  .bouquet img:nth-child(2n) { transform: translateY(6%); }
+  .market-pill {
+    display: inline-flex; flex-wrap: wrap; justify-content: center; gap: .3rem .7rem; align-items: baseline;
+    margin-top: 2rem; padding: .55rem 1.2rem; border: 1px solid var(--line); border-radius: 999px;
+    font: 500 1.05rem var(--display);
+  }
+  .market-pill a { font-weight: 600; color: #7A2338; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .market-pill a:hover { color: var(--ink); }
+  a.ext { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a.ext:hover { color: #7A2338; }
 
+  /* Abschnitte */
+  section { padding-block: 4rem; }
+  .sec-title { text-align: center; margin-bottom: 2.5rem; }
+  .sec-title h2 { font: 500 clamp(2.2rem, 5vw, 3rem)/1.1 var(--display); margin: 0; text-wrap: balance; }
+  .sec-title p { margin: .6rem auto 0; max-width: 36rem; color: var(--ink-soft); }
+  .eyebrow { font: 400 1.7rem/1 var(--script); color: var(--leaf); display: block; margin-bottom: .2rem; }
 
+  /* Sortiment */
+  .group + .group { margin-top: 3.5rem; }
+  .group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem 1rem; border-bottom: 1px solid var(--line); padding-bottom: .6rem; margin-bottom: 1.4rem; }
+  .group-title { font: 600 1.6rem var(--display); margin: 0; }
+  .group-head p { margin: 0; color: var(--ink-soft); font-style: italic; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); gap: 1.4rem; }
 
+  .grid.two { grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr)); }
+  @media (min-width: 60rem) { .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .label {
+    display: grid; grid-template-columns: 6.2rem 1fr; gap: .4rem;
+    border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.2rem 1rem .6rem;
+    background: var(--paper);
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+  .label:hover { box-shadow: 0 10px 28px -16px rgba(46,42,43,.35); transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { .label, .label:hover { transition: none; transform: none; } }
+  .label .flower { width: 100%; align-self: center; }
+  .label .body { min-width: 0; display: flex; flex-direction: column; }
+  .label .brand { font: 400 1.5rem/1 var(--script); color: var(--acc); margin: .2rem 0 0; text-align: center; }
+  .label .rule { display: flex; align-items: center; justify-content: center; gap: .35rem; margin: .45rem 0 .5rem; }
+  .label .rule::before, .label .rule::after { content: ""; width: 2.6rem; height: 1px; background: var(--acc); }
+  .label h3 { font: 600 1.65rem/1.1 var(--display); margin: 0 0 .45rem; text-align: center; text-wrap: balance; }
+  .label .zut { font-size: 1rem; line-height: 1.45; color: var(--ink-soft); margin: 0; }
+  .label .hint { font: italic 400 .95rem var(--text); color: var(--acc); margin: .35rem 0 0; }
+  .label .foot { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem; margin-top: auto; padding-top: .7rem; }
+  .label .sketch { width: 3.4rem; flex: none; }
+  .label .glas { font: italic 400 1rem var(--text); color: var(--ink-soft); white-space: nowrap; }
+  .label .preis { margin-left: auto; font: 600 1.45rem var(--display); color: var(--acc); white-space: nowrap; font-variant-numeric: lining-nums; }
 
+  .note { text-align: center; color: var(--ink-soft); font-style: italic; margin-top: 2.2rem; }
 
+  /* Über uns */
+  .about { background: var(--wash); }
+  .about .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 3rem; align-items: center; }
+  .about .pair { display: flex; justify-content: center; align-items: flex-end; }
+  .about .pair img { width: 38%; }
+  .about .pair img + img { margin-left: -8%; }
+  .about h2 { font: 500 clamp(2rem, 4.5vw, 2.7rem)/1.1 var(--display); margin: 0 0 1rem; }
+  .about p { max-width: 34rem; margin: 0 0 1rem; }
+  .about .promise { font: italic 500 1.2rem/1.45 var(--display); border-left: 2px solid var(--leaf); padding-left: 1rem; margin-top: 1.3rem; }
+  .facts { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 1.4rem 0 0; list-style: none; }
+  .facts li { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: .25rem .9rem; font: 500 1rem var(--display); }
+  @media (max-width: 48rem) { .about .wrap { grid-template-columns: 1fr; gap: 1.5rem; } .about .pair { max-width: 18rem; margin: 0 auto; } }
+
+  /* Markt */
+  .market .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1.4rem; }
+  .market .box { border-top: 2px solid var(--ink); padding-top: 1rem; }
+  .market h3 { font: 600 1.45rem var(--display); margin: 0 0 .4rem; }
+  .market .box p { margin: 0; }
+  .market .box p + p { margin-top: .3rem; }
+  .market .box p.small { font-size: 1rem; color: var(--ink-soft); margin-top: .5rem; }
+
+  .dates { margin-top: 2.6rem; border: 1px solid var(--line); border-radius: 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+  .date { padding: 1rem 1.3rem; display: flex; flex-direction: column; gap: .15rem; }
+  .date + .date { border-left: 1px solid var(--line); }
+  @media (max-width: 48rem) { .date + .date { border-left: 0; border-top: 1px solid var(--line); } }
+  .d-when { font: 600 1.35rem var(--display); color: #7A2338; }
+  .d-what { color: var(--ink-soft); }
+  /* Kontakt */
+  .contact { text-align: center; border-top: 1px solid var(--line); }
+  .contact .ways { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.6rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem; text-decoration: none;
+    font: 600 1.15rem var(--display); letter-spacing: .02em;
+    padding: .75rem 1.5rem; border-radius: 999px; border: 1.5px solid var(--ink);
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn:hover { background: var(--leaf); border-color: var(--leaf); color: var(--paper); }
+  .contact .plain { margin-top: 1.2rem; color: var(--ink-soft); font-size: 1rem; }
+
+  footer { text-align: center; padding-block: 2.2rem 2.6rem; color: var(--ink-soft); font-size: .95rem; }
+  footer .divider { margin-bottom: .9rem; }
+  footer .divider::before, footer .divider::after { width: 3rem; }
+</style>
 </head>
-
 <body>
 
-    <header class=" hero">
-        <h1>Lady Marmelade!</h1>
-        <p>Hier findest du Süsses & Salziges zum selbst geniessen oder als Geschenk für deine Lieben <br /> –
-            <br /> in jedem
-            Fall lecker und hübsch verpackt.
-        </p>
-    </header>
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="wrap">
+    <a class="logo" href="#top">Lady Marmelade</a>
+    <ul>
+      <li><a href="#sortiment">Sortiment</a></li>
+      <li class="opt"><a href="#ueber">Über mich</a></li>
+      <li><a href="#markt">Markt</a></li>
+      <li><a href="#kontakt">Bestellen</a></li>
+    </ul>
+  </div>
+</nav>
 
+<header class="hero wrap" id="top">
+  <h1>Lady Marmelade</h1>
+  <div class="divider" aria-hidden="true"><span></span></div>
+  <p class="lead">Hausgemachte Konfitüren, Chutneys, Pesto &amp; Aufstriche – zum Selbergeniessen oder Verschenken.</p>
+  <div class="bouquet" aria-hidden="true">
+      <img src="img/lavendel.webp" alt="" width="300" height="519">
+      <img src="img/mohn.webp" alt="" width="300" height="519">
+      <img src="img/christrose.webp" alt="" width="300" height="519">
+      <img src="img/ringelblume.webp" alt="" width="300" height="519">
+      <img src="img/allium.webp" alt="" width="300" height="519">
+      <img src="img/kamille.webp" alt="" width="300" height="519">
+      <img src="img/apfelbluete.webp" alt="" width="300" height="519">
+  </div>
+  <p class="market-pill"><span>Sa 12. &amp; So 13. Dezember</span> <a href="https://www.zuerich.com/de/winterzauber-uetliberg" target="_blank" rel="noopener">Winterzauber Uetliberg ↗</a></p>
+</header>
 
+<main>
+  <section id="sortiment" class="wrap">
+    <div class="sec-title">
+      <span class="eyebrow">frisch abgefüllt</span>
+      <h2>Mein Sortiment</h2>
+      <p>Jede Sorte hat ihre eigene Blüte – so findest du sie auch am Stand sofort wieder.</p>
+    </div>
+    <div class="group" id="konfi">
+      <div class="group-head">
+        <h3 class="group-title">Konfitüren & Gelee</h3>
+        <p>Fruchtig, mit Gewürzen für die kalten Tage.</p>
+      </div>
+      <div class="grid two">
+      <article class="label" style="--acc:#64489E">
+        <img class="flower" src="img/lavendel.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Zwetschge</h3>
+          <p class="zut">Zwetschgen, Zimt, veganer Gelierzucker</p>
+          
+          <div class="foot">
+            <img class="sketch" src="img/zwetschgen.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 225 ml</span>
+            <span class="preis">CHF 8.–</span>
+          </div>
+        </div>
+      </article>
+      <article class="label" style="--acc:#C9620E">
+        <img class="flower" src="img/ringelblume.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Pumpkin Spice</h3>
+          <p class="zut">Kürbis, Zimt, Nelken, Rum, veganer Gelierzucker</p>
+          <p class="hint">enthält Alkohol</p>
+          <div class="foot">
+            <img class="sketch" src="img/kuerbis_zimt.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 225 ml</span>
+            <span class="preis">CHF 9.–</span>
+          </div>
+        </div>
+      </article>
+      <article class="label" style="--acc:#A8432C">
+        <img class="flower" src="img/apfelbluete.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Bratapfel</h3>
+          <p class="zut">Äpfel, Apfelsaft, Mandeln, Rosinen, Zitronensaft, Zimt, Nelken, Vanille, veganer Gelierzucker</p>
+          <p class="hint">enthält Mandeln</p>
+          <div class="foot">
+            <img class="sketch" src="img/bratapfel.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 225 ml</span>
+            <span class="preis">CHF 9.–</span>
+          </div>
+        </div>
+      </article>
+      <article class="label" style="--acc:#7A2338">
+        <img class="flower" src="img/christrose.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Glühwein-Gelee</h3>
+          <p class="zut">Rotwein, Orangensaft, Bio-Orangen, Zitrone, Zimt, Sternanis, Nelken, veganer Gelierzucker</p>
+          <p class="hint">enthält Alkohol</p>
+          <div class="foot">
+            <img class="sketch" src="img/gluehwein.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 225 ml</span>
+            <span class="preis">CHF 9.–</span>
+          </div>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="group" id="pikant">
+      <div class="group-head">
+        <h3 class="group-title">Chutneys & Pesto</h3>
+        <p>Zu Käse, Raclette, Fondue chinoise und Pasta.</p>
+      </div>
+      <div class="grid">
+      <article class="label" style="--acc:#C27C0E">
+        <img class="flower" src="img/mangobluete.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Mango-Chutney</h3>
+          <p class="zut">Mango, Zwiebel, Chili, Ingwer, Zucker, Essig, Kurkuma, Sultaninen, schwarzer Sesam</p>
+          <p class="hint">enthält Sesam</p>
+          <div class="foot">
+            <img class="sketch" src="img/mango_chili.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 125 ml</span>
+            <span class="preis">CHF 6.–</span>
+          </div>
+        </div>
+      </article>
+      <article class="label" style="--acc:#7D3C8C">
+        <img class="flower" src="img/allium.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Rotes Zwiebelchutney</h3>
+          <p class="zut">Rote Zwiebeln, Chili, Zucker, Essig, Öl, Salz</p>
+          
+          <div class="foot">
+            <img class="sketch" src="img/zwiebeln.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 225 ml</span>
+            <span class="preis">CHF 9.–</span>
+          </div>
+        </div>
+      </article>
+      <article class="label" style="--acc:#B8352A">
+        <img class="flower" src="img/mohn.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Rotes Pesto</h3>
+          <p class="zut">Getrocknete Tomaten, Pinienkerne, Parmesan, Olivenöl, Knoblauch, Oregano</p>
+          <p class="hint">enthält Milch &amp; Pinienkerne · kühl lagern</p>
+          <div class="foot">
+            <img class="sketch" src="img/tomaten.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 125 ml</span>
+            <span class="preis">CHF 8.–</span>
+          </div>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="group" id="nuss">
+      <div class="group-head">
+        <h3 class="group-title">Nussmus & Aufstriche</h3>
+        <p>Fein gemahlen, zum Löffeln und Verschenken.</p>
+      </div>
+      <div class="grid">
+      <article class="label" style="--acc:#A87A10">
+        <img class="flower" src="img/kamille.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Cashewbutter</h3>
+          <p class="zut">Cashews, Kokosöl, Salz</p>
+          <p class="hint">enthält Cashews</p>
+          <div class="foot">
+            <img class="sketch" src="img/cashews.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 167 ml</span>
+            <span class="preis">CHF 12.–</span>
+          </div>
+        </div>
+      </article>
+      <article class="label" style="--acc:#A8302A">
+        <img class="flower" src="img/weihnachtsstern.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Cashew Zimtstern</h3>
+          <p class="zut">Geröstete Cashews, Rohrohrzucker, Zimt, Vanille, Kokosöl, Fleur de Sel</p>
+          <p class="hint">enthält Cashews</p>
+          <div class="foot">
+            <img class="sketch" src="img/cashew_zimtstern.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 167 ml</span>
+            <span class="preis">CHF 13.–</span>
+          </div>
+        </div>
+      </article>
+      <article class="label" style="--acc:#8A5A2B">
+        <img class="flower" src="img/haselbluete.webp" alt="" width="300" height="519" loading="lazy">
+        <div class="body">
+          <p class="brand">Lady Marmelade</p>
+          <span class="rule" aria-hidden="true"></span>
+          <h3>Haselnuss-Schoggi</h3>
+          <p class="zut">Geröstete Haselnüsse, Schokolade, Zucker, Kakao, Milchpulver, Öl, Vanille</p>
+          <p class="hint">enthält Haselnüsse &amp; Milch</p>
+          <div class="foot">
+            <img class="sketch" src="img/haselnuesse.webp" alt="" width="264" height="216" loading="lazy">
+            <span class="glas">Glas à 167 ml</span>
+            <span class="preis">CHF 10.–</span>
+          </div>
+        </div>
+      </article>
+      </div>
+    </div>
+    <p class="note">Alle Sorten in kleinen Mengen von Hand gemacht. Solange Vorrat.</p>
+  </section>
 
+  <section id="ueber" class="about">
+    <div class="wrap">
+      <div class="pair" aria-hidden="true">
+        <img src="img/heckenrose.webp" alt="" width="300" height="519" loading="lazy">
+        <img src="img/kornblume.webp" alt="" width="300" height="519" loading="lazy">
+      </div>
+      <div>
+        <span class="eyebrow">darf ich vorstellen</span>
+        <h2>Wer ist Lady Marmelade?</h2>
+        <p>Das bin ich, Eva: Ich koche gern, liebe Feines aus der Küche und verschenke am liebsten Selbstgemachtes zum Verbrauchen und Geniessen. Du auch?</p>
+        <p>Lady Marmelade ist mein Ein-Frau-Unternehmen: Alles entsteht in kleinen Mengen in meiner Küche – mit saisonalen Früchten und Gemüse, ohne Konservierungs- und Zusatzstoffe, dafür mit viel Herzblut.</p>
+        <p class="promise">Keine Fabrik, keine Fliessbandware – nur meine Küche und ich. Hält ein Glas einmal nicht, was es verspricht, melde dich ungeniert bei mir. Ich will es wissen.</p>
+        <ul class="facts">
+          <li>saisonal</li><li>ohne Zusatzstoffe</li><li>von Hand abgefüllt</li><li>in Zürich gemacht</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <main class="content-section">
+  <section id="markt" class="market wrap">
+    <div class="sec-title">
+      <span class="eyebrow">komm vorbei</span>
+      <h2>Am Winterzauber Uetliberg</h2>
+      <p>Am 12. und 13. Dezember findest du mich mit dem ganzen Sortiment auf dem Uetliberg.</p>
+    </div>
+    <div class="cols">
+      <div class="box">
+        <h3>Wann</h3>
+        <p><strong>Samstag, 12. und Sonntag, 13. Dezember 2026</strong></p>
+        <p class="small"><a class="ext" href="https://www.zuerich.com/de/winterzauber-uetliberg" target="_blank" rel="noopener">Winterzauber Uetliberg, Zürich ↗</a></p>
+      </div>
+      <div class="box">
+        <h3>Probieren</h3>
+        <p>Am Stand kannst du jede Sorte kosten: Chutneys mit Käse, Konfitüren mit Zopf, Nussmus mit Apfel.</p>
+      </div>
+      <div class="box">
+        <h3>Als Geschenk</h3>
+        <p>Meine Chutneys passen perfekt zu Raclette und Fondue chinoise – ein schönes Mitbringsel für die Festtage.</p>
+        <p class="small">Bezahlen bar oder mit TWINT.</p>
+      </div>
+    </div>
+    <div class="dates">
+      <div class="date">
+        <span class="d-when">12. &amp; 13. Dez.</span>
+        <a class="d-what ext" href="https://www.zuerich.com/de/winterzauber-uetliberg" target="_blank" rel="noopener">Winterzauber Uetliberg ↗</a>
+      </div>
+      <div class="date">
+        <span class="d-when">Datum folgt</span>
+        <span class="d-what">Vorweihnachtsverkauf im Quartier</span>
+      </div>
+      <div class="date">
+        <span class="d-when">jederzeit</span>
+        <span class="d-what">Bestellungen per WhatsApp oder E-Mail</span>
+      </div>
+    </div>
+  </section>
 
-        <section class="about-me">
-            <h2>Das ist Lady Marmelade</h2>
-            <p>
-                Eva, die gern kocht und Essen & Geschenke liebt. <br />
-                Eine kleine Ein-Frau-Produktion, die verarbeitet, was die Jahreszeit gerade hergibt. <br />
-                <br />
+  <section id="kontakt" class="contact">
+    <div class="wrap">
+      <div class="sec-title" style="margin-bottom:0">
+        <span class="eyebrow">bestellen</span>
+        <h2>Lust auf ein Glas?</h2>
+        <p>Bestellungen nehme ich gern jederzeit entgegen. Schreib mir, was du möchtest – ich lege es dir zur Seite und wir vereinbaren eine Abholung.</p>
+      </div>
+      <div class="ways">
+        <a class="btn primary" href="https://wa.me/41766832106" rel="noopener">WhatsApp 076 683 21 06</a>
+        <a class="btn" href="mailto:e.bronner86@gmail.com">E-Mail schreiben</a>
+      </div>
+      <p class="plain">e.bronner86@gmail.com</p>
+    </div>
+  </section>
+</main>
 
-                Ohne Konservierungs- und Zusatzstoffe dafür mit viel Herzblut fülle ich ins Glas was mir schmeckt und
-                wovon ich denke, Du hast auch Freude dran.
-
-
-                <img src="Bild.jpeg" alt="Da fehlt das Bild einer ... Marmelade!" class="hero-image">
-            </p>
-        </section>
-
-
-
-        <section class="details" id="details">
-            <h2>Das gibt’s und das ist drin:</h2>
-
-            <ul class="product-list">
-                  <li data-icon=" ">
-                    <a href="#ingredients-aprikosen-ingwer-marmelade">Aprikosen-Ingwer-Marmelade</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-aprikosen-marmelade">Aprikosen Marmelade</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-bacon-konfitüre">Bacon-Konfitüre</a>
-                </li>
-
-                <li data-icon=" ">
-                    <a href="#ingredients-chashewbutter"> Chashewbutter</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-erdbeer-balsamico-marmelade">Erdbeer-Balsamico-Marmelade</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-erdbeer-marmelade">Erdbeer Marmelade</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-glühwein-sirup">Glühwein Sirup</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-mango-chutney">Mango Chutney</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-orangen-kiwi-marmelade">Orangen-Kiwi-Marmelade</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-pumpkin-spice-marmelade">Pumpkin-Spice-Marmelade</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-rotes-pesto">Rotes Pesto</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-zwiebel-chutney">Zwiebel Chutney</a>
-                </li>
-                <li data-icon=" ">
-                    <a href="#ingredients-zwetschgen-marmelade">Zwetschgen Marmelade</a>
-                </li>
-            </ul>
-
-
-
-            <div id="ingredients-aprikosen-ingwer-marmelade" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Aprikosen-Ingwer-Marmelade</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Aprikosen</li>
-                        <li>Ingwer</li>
-                        <li>Gelierzucker (vegan)</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="ingredients-aprikosen-marmelade" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Aprikosen Marmelade</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Aprikosen</li>
-                        <li>Gelierzucker (vegan)</li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-            <div id="ingredients-bacon-konfitüre" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Bacon Konfitüre</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Zwiebeln</li>
-                        <li>Knoblauch</li>
-                        <li>Speck</li>
-                        <li>brauner Zucker</li>
-                        <li>Pfeffer</li>
-                        <li>Zimt</li>
-                        <li>Muskat</li>
-                        <li>Paprika edelsüss</li>
-                        <li>Whisky</li>
-                        <li>Balsamico</li>
-                        <li>Ahornsirup</li>
-                        <li>Ketchup</li>
-
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="ingredients-chashewbutter" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Chashewbutter</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Chashewkerne</li>
-                        <li>Salz</li>
-                        <li>Kokosöl</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="ingredients-erdbeer-balsamico-marmelade" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Erdbeer-Balsamico-Marmelade</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Erdbeeren</li>
-                        <li>Äpfel</li>
-                        <li>Öl</li>
-                        <li>Balsamico</li>
-                        <li>Pfeffer</li>
-                        <li>Salz</li>
-                        <li>Gelierzucker (vegan)</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="ingredients-erdbeer-marmelade" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Erdbeer Marmelade</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Erdbeeren</li>
-                        <li>Gelierzucker (vegan)</li>
-                        <li>Zitrone</li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-            <div id="ingredients-glühwein-sirup" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Glühwein Sirup</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Zimt</li>
-                        <li>Sternanis</li>
-                        <li>Gewürznelken</li>
-                        <li>Piment</li>
-                        <li>Korianderkörner</li>
-                        <li>Orangen (bio)</li>
-                        <li>Zitronen (bio)</li>
-                        <li>Rohrzucker</li>
-                        <li>Rotwein</li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-
-            <div id="ingredients-mango-chutney" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Mango Chutney</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li> Mango</li>
-                        <li> Chili</li>
-                        <li> Ingwer</li>
-                        <li> Zwiebel</li>
-                        <li> Zucker</li>
-                        <li> Essig</li>
-                        <li> Pfeffer</li>
-                        <li> Kurkuma</li>
-                        <li> Sultaninen</li>
-                        <li> Schwarzer Sesam </li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-            <div id="ingredients-orangen-kiwi-marmelade" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Orangen-Kiwi-Marmelade</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Orange</li>
-                        <li>Kiwi</li>
-                        <li>Ingwer</li>
-                        <li>Gelierzucker (vegan)</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="ingredients-pumpkin-spice-marmelade" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Pumpkin-Spice-Marmelade</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Kürbis</li>
-                        <li>Zimt</li>
-                        <li>Nelken</li>
-                        <li>Rum</li>
-                        <li>Gelierzucker (vegan)</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="ingredients-rotes-pesto" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Rotes Pesto</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Getrocknete Tomaten</li>
-                        <li>Pinienkerne</li>
-                        <li>Oregano</li>
-                        <li>Knoblauch</li>
-                        <li>Parmesan</li>
-                        <li>Olivenöl</li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-            <div id="ingredients-zwiebel-chutney" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Zwiebel Chutney</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Zwiebel</li>
-                        <li>Chili</li>
-                        <li>Zucker</li>
-                        <li>Salz</li>
-                        <li>Essig</li>
-                        <li>Öl</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div id="ingredients-zwetschgen-marmelade" class="ingredients-list">
-                <div class="ingredients-list-inner">
-                    <div class="ingredients-header">
-                        <h3>Zutaten: Zwetschgen Marmelade</h3>
-                        <a href="#details" class="close-link">[X]</a>
-                    </div>
-                    <ul>
-                        <li>Zwetschge</li>
-                        <li>Zimt</li>
-                        <li>Gelierzucker (vegan)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-
-
-
-        <section class="contact">
-            <h2>Kontakt</h2>
-            <p>
-                Whatsapp: 076 683 21 06 <br />
-                Mail: <a href=" mailto:e.bronner86@gmail.com">e.bronner86@gmail.com</a><br />
-            </p>
-        </section>
-
-
-
-
-
-
-
-    </main>
-
-    <footer class=" footer">
-        <p>&copy; 2025...von Jonas erstellt.</p>
-    </footer>
+<footer>
+  <div class="divider" aria-hidden="true"><span></span></div>
+  © 2026 Lady Marmelade · Website von Jonas
+</footer>
 
 </body>
-
 </html>
