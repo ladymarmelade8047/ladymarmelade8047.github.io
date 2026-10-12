@@ -173,6 +173,18 @@
   .btn.primary { color: #FFFFFF; }
   footer { background: var(--tint); }
   .nav .logo { font-size: 2rem; }
+  @media (max-width: 40rem) {
+    .nav .logo { font-size: 1.45rem; }
+    .nav ul { gap: .7rem; }
+    .nav ul a { font-size: .9rem; letter-spacing: 0; }
+    .label { grid-template-columns: 4.6rem 1fr; padding: .9rem .9rem .9rem .4rem; }
+    .label h3 { font-size: 1.45rem; }
+    .label .brand { font-size: 1.3rem; }
+  }
+  @media (max-width: 23rem) {
+    .nav ul li:nth-child(3) { display: none; }
+    .nav .logo { font-size: 1.3rem; }
+  }
 </style>
 </head>
 <body>
